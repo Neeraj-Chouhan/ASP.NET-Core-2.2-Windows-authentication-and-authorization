@@ -1,0 +1,82 @@
+﻿@model  IEnumerable<Employee>
+@{
+    ViewBag.title = "Employees Details";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+
+
+
+    <br />
+    <br />
+
+    @*<h2>this is my view from test @ViewData["Name"] and salary is @ViewBag.salary</h2>*@
+    @*<h2>@Model.Name</h2>*@
+
+    @*<table border="2" width="400px">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Salary</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Salary</td>
+
+                </tr>
+
+
+            }
+
+
+
+        </table>*@
+
+    <button type="button" asp-action="CreateEmployee" asp-controller="Home" class="btn btn-warning">Add</button>
+
+    <br />
+    <br />
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-warning">
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr class="table-success">
+
+                    <td>@item.id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Salary</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <a  asp-controller="Home" asp-action="DeleteEmployee" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</body>
+</html>
